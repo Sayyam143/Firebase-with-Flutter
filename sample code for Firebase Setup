@@ -1,0 +1,46 @@
+TO install Firebase Package 
+	npm install -g firebase-tools
+
+Now Activate Console
+	dart pub global activate flutterfire_cli
+
+Firebase login 
+	Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+	firebase login 
+
+After We make Configuration And Fetch Project
+	 flutterfire configure 
+
+Example
+
+	PS D:\flutter\photos> flutterfire configure
+		i Found 3 Firebase projects.
+		✔ Select a Firebase project to configure your Flutter application with · best-memory-a912f (Best Memory)
+		✔ Which platforms should your configuration support (use arrow keys & space to select)? · android, ios, macos, web, windows
+		✔ Which Android application id (or package name) do you want to use for this configuration, e.g. 'com.example.app'? · com.example.photos
+		i Firebase android app com.example.photos registered.
+		i Firebase ios app com.example.photos is not registered on Firebase project best-memory-a912f.
+		i Registered a new Firebase ios app on Firebase project best-memory-a912f.
+		i Firebase macos app com.example.photos registered.
+		i Firebase web app photos (web) registered.
+		i Firebase windows app photos (windows) is not registered on Firebase project best-memory-a912f.
+		i Registered a new Firebase windows app on Firebase project best-memory-a912f.
+
+After the Successfully Command Run it Make Dart File in lib folder
+
+	firebase_options.dart
+
+and Install related Package 
+	
+	firebase_core 
+
+
+initially  the Application
+
+	void main() async {
+ 	 WidgetsFlutterBinding.ensureInitialized();
+  	 	  await Firebase.initializeApp(
+  		  options: DefaultFirebaseOptions.currentPlatform,
+  	);
+  	runApp(const MyApp());
+	}
